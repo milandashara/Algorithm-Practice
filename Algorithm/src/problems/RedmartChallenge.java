@@ -445,7 +445,7 @@ public class RedmartChallenge {
 			return;
 		
 		int maxNeboureValue=Math.max(p.leftCount, Math.max(p.rightCount,Math.max(p.topCount,p.bottomCount)));
-		System.out.println("value ="+p.value() +" "+maxNeboureValue);
+		//System.out.println("value ="+p.value() +" "+maxNeboureValue);
 		
 		if(maxNeboureValue==0)
 			if(p!=null)
@@ -481,7 +481,10 @@ public class RedmartChallenge {
 	public static void main(String[] args) throws FileNotFoundException {
 		//init();
 		
+		//read matrix
 		readTxt();
+		
+		//find paths
 		for(int i=0;i<data.length;i++)
 			for(int j=0;j<data.length;j++){
 				//long start=System.currentTimeMillis();
@@ -491,17 +494,15 @@ public class RedmartChallenge {
 				}
 				else traverseNode(p);
 				//long end=System.currentTimeMillis();
-				System.out.println(i+""+j);
+				//System.out.println(i+""+j);
 			}
 		
-//		for(Point p:visitedPath.keySet()){
-//			System.out.println(p+"Count : "+visitedPath.get(p));
-//		}
+
+		//find longest
 		findLongestPathStartingPoints();
-//		for(Point p:longestPathStartingPoint){
-//			System.out.println(p+"="+p.value());
-//		}
+
 		
+		//find steepest
 		Point steepest=null;
 		int max=0;
 		for(Point p:longestPathStartingPoint){
@@ -509,7 +510,7 @@ public class RedmartChallenge {
 			int end=p.value();
 			Point firstPoint=p;
 			while(p!=null){
-				System.out.print(p.value());
+			//	System.out.print(p.value());
 				int value=p.value();
 				p=p.next();
 				if(p==null)
@@ -524,6 +525,7 @@ public class RedmartChallenge {
 			//printLongestPath(p);
 		}
 		
+		//found
 		if(steepest!=null){
 			while(steepest!=null){
 				System.out.print(steepest.value()+",");
