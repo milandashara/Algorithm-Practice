@@ -69,39 +69,39 @@ public class Point {
 		return this.x.equals(p.x) && this.y.equals(p.y);
 	}
 	
-	@Override
-	public int hashCode() {
-		// TODO Auto-generated method stub
-		return x+y+right()+top()+bootom()+left();
-	}
+//	@Override
+//	public int hashCode() {
+//		// TODO Auto-generated method stub
+//		return x+y+right()+top()+bootom()+left();
+//	}
 	
 	public int value(){
-		return RedmartChallenge1.data[x][y];
+		return RedmartChallenge1CorrectNeedToImprove.data[x][y];
 	}
 	
 	public int top(){
 		if(x-1==-1)
 			return -1;
-		return RedmartChallenge1.data[x-1][y];
+		return RedmartChallenge1CorrectNeedToImprove.data[x-1][y];
 	}
 	public int bootom(){
-		if(x+1 >= RedmartChallenge1.data.length)
+		if(x+1 >= RedmartChallenge1CorrectNeedToImprove.data.length)
 			return -1;
-		return RedmartChallenge1.data[x+1][y];
+		return RedmartChallenge1CorrectNeedToImprove.data[x+1][y];
 	}
 	public int left(){
 		if(y-1==-1)
 			return -1;
-		return RedmartChallenge1.data[x][y-1];
+		return RedmartChallenge1CorrectNeedToImprove.data[x][y-1];
 	}
 	public int right(){
-		if(y+1 >= RedmartChallenge1.data.length)
+		if(y+1 >= RedmartChallenge1CorrectNeedToImprove.data.length)
 			return -1;
-		return RedmartChallenge1.data[x][y+1];
+		return RedmartChallenge1CorrectNeedToImprove.data[x][y+1];
 	}
 	
 	public Point rightPoint(){
-		if(y+1 >= RedmartChallenge1.data.length)
+		if(y+1 >= RedmartChallenge1CorrectNeedToImprove.data.length)
 			return null;
 		if(this.rightPoint!=null)
 			return rightPoint;
@@ -130,7 +130,7 @@ public class Point {
 	}
 	
 	public Point bottomPoint(){
-		if(x+1 >= RedmartChallenge1.data.length)
+		if(x+1 >= RedmartChallenge1CorrectNeedToImprove.data.length)
 			return null;
 		
 		if(this.bottomPoint!=null)

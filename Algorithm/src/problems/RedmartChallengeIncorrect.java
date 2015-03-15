@@ -19,7 +19,7 @@ import java.util.Set;
  * @author Milan
  *
  */
-public class RedmartChallenge {
+public class RedmartChallengeIncorrect {
 
 	//public static int X=4;
 	//public static int Y=4;

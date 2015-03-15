@@ -9,12 +9,18 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-public class RedmartChallenge1 {
+/**
+ * 
+ * @author Milan Dilipbhai Ashara
+ *
+ */
+public class RedmartChallenge1CorrectNeedToImprove {
 
 	public static int[][] data;
 	public static HashMap<Point, Integer> visitedPath=new HashMap<Point, Integer>();
 	public static List<Point> longestPathStartingPoint=new ArrayList<Point>();
-	public static Map<Point,Point> allPoint=new HashMap<Point,Point>();
+	public static HashMap<String, Point> allPoints=new HashMap<String, Point>();
+	//public static Map<Point,Point> allPoint=new HashMap<Point,Point>();
 	public static void init(){
 		data=new int[4][4];
 		
@@ -64,6 +70,7 @@ public class RedmartChallenge1 {
 						p.rightCount=count;	
 						p.setNext(getPoint(p.rightPoint));
 						visitedPath.put(p, ++count);
+						allPoints.put(p.x+" "+p.y, p);
 					}
 				}
 				else{
@@ -73,9 +80,11 @@ public class RedmartChallenge1 {
 					p.rightCount=count;
 					p.setNext(getPoint(p.rightPoint));
 				visitedPath.put(p, ++count);
+				allPoints.put(p.x+" "+p.y, p);
 				}
 			}
 			else{
+				if(p.rightPoint!=null)
 				traverseNode(p.rightPoint());
 				if(visitedPath.containsKey(p.rightPoint())){
 					int count=visitedPath.get(p.rightPoint());
@@ -93,6 +102,7 @@ public class RedmartChallenge1 {
 							//p.rightPoint=getPoint(p.rightPoint);
 							p.rightCount=count;	
 							visitedPath.put(p, ++count);
+							allPoints.put(p.x+" "+p.y, p);
 						}
 					}
 					else{
@@ -101,6 +111,7 @@ public class RedmartChallenge1 {
 						p.rightCount=count;
 						p.setNext(getPoint(p.rightPoint));
 					visitedPath.put(p, ++count);
+					allPoints.put(p.x+" "+p.y, p);
 					}
 				}
 			}
@@ -125,6 +136,7 @@ public class RedmartChallenge1 {
 						p.leftCount=count;	
 						p.setNext(getPoint(p.leftPoint));
 						visitedPath.put(p, ++count);
+						allPoints.put(p.x+" "+p.y, p);
 					}
 				}
 				else{
@@ -133,9 +145,11 @@ public class RedmartChallenge1 {
 					p.leftCount=count;		
 					p.setNext(getPoint(p.leftPoint));
 					visitedPath.put(p, ++count);
+					allPoints.put(p.x+" "+p.y, p);
 				}
 			}
 			else{
+				if(p.leftPoint!=null)
 				traverseNode(p.leftPoint());
 				if(visitedPath.containsKey(p.leftPoint())){
 					int count=visitedPath.get(p.leftPoint());
@@ -154,6 +168,7 @@ public class RedmartChallenge1 {
 							p.leftCount=count;		
 							p.setNext(getPoint(p.leftPoint));
 							visitedPath.put(p, ++count);
+							allPoints.put(p.x+" "+p.y, p);
 						}
 					}
 					else{
@@ -162,6 +177,7 @@ public class RedmartChallenge1 {
 						p.leftCount=count;		
 						p.setNext(getPoint(p.leftPoint));
 						visitedPath.put(p, ++count);
+						allPoints.put(p.x+" "+p.y, p);
 					}
 				}
 			}
@@ -186,6 +202,7 @@ public class RedmartChallenge1 {
 						p.topCount=count;
 						p.setNext(getPoint(p.topPoint));
 						visitedPath.put(p, ++count);
+						allPoints.put(p.x+" "+p.y, p);
 					}
 				}
 				else{
@@ -194,9 +211,11 @@ public class RedmartChallenge1 {
 					p.topCount=count;
 					p.setNext(getPoint(p.topPoint));
 				visitedPath.put(p, ++count);
+				allPoints.put(p.x+" "+p.y, p);
 				}
 			}
 			else{
+				if(p.topPoint!=null)
 				traverseNode(p.topPoint());
 				if(visitedPath.containsKey(p.topPoint())){
 					int count=visitedPath.get(p.topPoint());
@@ -216,6 +235,7 @@ public class RedmartChallenge1 {
 							p.topCount=count;
 							p.setNext(getPoint(p.topPoint));
 							visitedPath.put(p, ++count);
+							allPoints.put(p.x+" "+p.y, p);
 						}
 					}
 					else{
@@ -224,6 +244,7 @@ public class RedmartChallenge1 {
 						p.topCount=count;
 						p.setNext(getPoint(p.topPoint));
 					visitedPath.put(p, ++count);
+					allPoints.put(p.x+" "+p.y, p);
 					}
 				}
 			}
@@ -249,6 +270,7 @@ public class RedmartChallenge1 {
 						p.bottomCount=count;
 						p.setNext(getPoint(p.bottomPoint));
 						visitedPath.put(p, ++count);
+						allPoints.put(p.x+" "+p.y, p);
 					}
 				}
 				else{
@@ -258,9 +280,11 @@ public class RedmartChallenge1 {
 					p.bottomCount=count;
 					p.setNext(getPoint(p.bottomPoint));
 				visitedPath.put(p, ++count);
+				allPoints.put(p.x+" "+p.y, p);
 				}
 			}
 			else{
+				if(p.bottomPoint!=null)
 				traverseNode(p.bottomPoint());
 				if(visitedPath.containsKey(p.bottomPoint())){
 					int count=visitedPath.get(p.bottomPoint());
@@ -279,6 +303,7 @@ public class RedmartChallenge1 {
 							p.bottomCount=count;
 							p.setNext(getPoint(p.bottomPoint));
 							visitedPath.put(p, ++count);
+							allPoints.put(p.x+" "+p.y, p);
 						}
 					}
 					else{
@@ -287,6 +312,7 @@ public class RedmartChallenge1 {
 						p.bottomCount=count;
 						p.setNext(getPoint(p.bottomPoint));
 					visitedPath.put(p, ++count);
+					allPoints.put(p.x+" "+p.y, p);
 					}
 				}
 			}
@@ -294,7 +320,8 @@ public class RedmartChallenge1 {
 		
 		if(noDescendingPoint){
 			visitedPath.put(p, 0);
-			allPoint.put(new Point(p.x, p.y), p);
+			allPoints.put(p.x+" "+p.y, p);
+			//allPoint.put(new Point(p.x, p.y), p);
 		}
 		
 //		Integer leftCount=visitedPath.get(p.leftPoint());
@@ -342,20 +369,20 @@ public class RedmartChallenge1 {
 	}
 	
 	public static Point getPoint(Point point){
-		for(Point p:visitedPath.keySet()){
-			if(p.equals(point))
-				return p;			
-		}
-		
-		return null;
-		//return allPoint.get(point);
+//		for(Point p:visitedPath.keySet()){
+//			if(p.equals(point))
+//				return p;			
+//		}
+//		
+//		return null;
+		return allPoints.get(point.x+" "+point.y);
 	}
 	
 	public static void readTxt() throws FileNotFoundException{
 		//File inFile = new File(new InputStreamReader(RedmartChallenge.class.getClassLoader().getResourceAsStream("SomeTextFile.txt")));
 	    //InputStream is=RedmartChallenge.class.getClassLoader().getResourceAsStream("map.txt");
 		
-	    File file = new File("C:\\Users\\Milan\\git\\Algorithm-Practice\\Algorithm\\src\\problems\\map.txt");
+	    File file = new File("C:\\Users\\a0120041j\\git\\Algorithm-Practice\\Algorithm\\src\\problems\\map.txt");
 	    Scanner in = new Scanner(file);
 	    in.useDelimiter("[/n]");
 
@@ -456,7 +483,11 @@ public class RedmartChallenge1 {
 		for(int i=0;i<data.length;i++)
 			for(int j=0;j<data.length;j++){
 				//long start=System.currentTimeMillis();
-				traverseNode(new Point(i,j));
+				Point p=new Point(i,j);
+				if(visitedPath.containsKey(p)){
+					
+				}
+				else traverseNode(p);
 				//long end=System.currentTimeMillis();
 				System.out.println(i+""+j);
 			}
