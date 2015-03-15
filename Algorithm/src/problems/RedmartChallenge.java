@@ -12,9 +12,11 @@ import java.util.Scanner;
 /**
  * 
  * @author Milan Dilipbhai Ashara
+ * 
+ * Working code. Need Refactoring.
  *
  */
-public class RedmartChallenge1CorrectNeedToImprove {
+public class RedmartChallenge {
 
 	public static int[][] data;
 	public static HashMap<Point, Integer> visitedPath=new HashMap<Point, Integer>();
