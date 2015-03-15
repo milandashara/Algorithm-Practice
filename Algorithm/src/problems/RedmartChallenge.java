@@ -2,11 +2,9 @@ package problems;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.ObjectInputStream.GetField;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -22,7 +20,7 @@ public class RedmartChallenge {
 	public static HashMap<Point, Integer> visitedPath=new HashMap<Point, Integer>();
 	public static List<Point> longestPathStartingPoint=new ArrayList<Point>();
 	public static HashMap<String, Point> allPoints=new HashMap<String, Point>();
-	//public static Map<Point,Point> allPoint=new HashMap<Point,Point>();
+
 	public static void init(){
 		data=new int[4][4];
 		
@@ -323,66 +321,22 @@ public class RedmartChallenge {
 		if(noDescendingPoint){
 			visitedPath.put(p, 0);
 			allPoints.put(p.x+" "+p.y, p);
-			//allPoint.put(new Point(p.x, p.y), p);
+
 		}
 		
-//		Integer leftCount=visitedPath.get(p.leftPoint());
-//		Integer rightCount=visitedPath.get(p.rightPoint());
-//		Integer topCount=visitedPath.get(p.topPoint());
-//		Integer bottomCount=visitedPath.get(p.bottomPoint());
-//		
-//		if(leftCount==null)
-//			leftCount=0;
-//		
-//		if(rightCount==null)
-//			rightCount=0;
-//		
-//		if(topCount==null)
-//			topCount=0;
-//		
-//		if(bottomCount==null)
-//			bottomCount=0;
-//		int maxNeboureValue=Math.max(leftCount, Math.max(rightCount,Math.max(topCount,bottomCount)));
-//		
-//		if(leftCount==maxNeboureValue){
-//			p.setNext(p.leftPoint());
-//		}else if(rightCount==maxNeboureValue){
-////			if(p.next()!=null && p.rightPoint().value() > p.next().value()){
-////				
-////			}else
-//			p.setNext(p.rightPoint());
-//		}
-//		else if(topCount== maxNeboureValue){
-////			if(p.next()!=null && p.topPoint().value() > p.next().value()){
-////				
-////			}else
-//			p.setNext(p.topPoint());
-//			
-//		}else if(bottomCount== maxNeboureValue){
-////			if(p.next()!=null && p.bottomPoint().value() > p.next().value()){
-////				
-////			}else
-//			p.setNext(p.bottomPoint());
-//			
-//		}
+
 		
 		
 		
 	}
 	
 	public static Point getPoint(Point point){
-//		for(Point p:visitedPath.keySet()){
-//			if(p.equals(point))
-//				return p;			
-//		}
-//		
-//		return null;
+
 		return allPoints.get(point.x+" "+point.y);
 	}
 	
 	public static void readTxt() throws FileNotFoundException{
-		//File inFile = new File(new InputStreamReader(RedmartChallenge.class.getClassLoader().getResourceAsStream("SomeTextFile.txt")));
-	    //InputStream is=RedmartChallenge.class.getClassLoader().getResourceAsStream("map.txt");
+
 		
 	    File file = new File("C:\\Users\\a0120041j\\git\\Algorithm-Practice\\Algorithm\\src\\problems\\map.txt");
 	    Scanner in = new Scanner(file);
@@ -390,25 +344,7 @@ public class RedmartChallenge {
 
 	    String line = "";
 	    int lineCount = 0;
-//		while (in.hasNextLine()) {
-//			line = in.nextLine().trim();
-//		    Scanner lineIn = new Scanner(line);
-//		    //The initial case - this first line is used to determine the size of the array
-//		    if(lineIn.hasNext()) {				
-//		        //Create a String array by splitting by spaces
-//		        String[] s = lineIn.nextLine().split(" ");
-//		        //Reinitialize the array to hold all of your subarrays
-//		        matrix = new int[s.length];
-//		        for (int i = 0; i < s.length; i++) {
-//		            //Reinitialize each subarray to hold the numbers
-//		            matrix[i] = new int[i];
-//		            //Finally, parse your data from the String array
-//		            matrix[0][i] = Integer.parseInt(s[i]);
-//		        }
-//		    }
-//		    
-//		}
-		
+
 	    String firstLine=in.nextLine();
 	    Scanner firstLineScanner=new Scanner(firstLine);
 	    Integer x=Integer.parseInt(firstLineScanner.next());
@@ -487,14 +423,13 @@ public class RedmartChallenge {
 		//find paths
 		for(int i=0;i<data.length;i++)
 			for(int j=0;j<data.length;j++){
-				//long start=System.currentTimeMillis();
+
 				Point p=new Point(i,j);
 				if(visitedPath.containsKey(p)){
 					
 				}
 				else traverseNode(p);
-				//long end=System.currentTimeMillis();
-				//System.out.println(i+""+j);
+
 			}
 		
 
