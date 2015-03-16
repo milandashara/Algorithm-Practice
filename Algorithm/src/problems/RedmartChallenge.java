@@ -12,34 +12,38 @@ import java.util.Scanner;
  * @author Milan Dilipbhai Ashara
  * 
  * Working code. Need Refactoring.
+ * Improved.. Can be improved by using same data structure for visited path as well as all Points
  *
  */
 public class RedmartChallenge {
 
-	public static int[][] data;
+	//public static int[][] data;
 	public static HashMap<Point, Integer> visitedPath=new HashMap<Point, Integer>();
 	public static List<Point> longestPathStartingPoint=new ArrayList<Point>();
 	public static HashMap<String, Point> allPoints=new HashMap<String, Point>();
+	public static int length=0;
 
 	public static void init(){
-		data=new int[4][4];
+		length=4;
 		
-		data[0][0]=4;
-		data[0][1]=8;
-		data[0][2]=7;
-		data[0][3]=3;
-		data[1][0]=2;
-		data[1][1]=5;
-		data[1][2]=9;
-		data[1][3]=3;
-		data[2][0]=6;
-		data[2][1]=3;
-		data[2][2]=2;
-		data[2][3]=5;
-		data[3][0]=4;
-		data[3][1]=4;
-		data[3][2]=1;
-		data[3][3]=6;		
+		allPoints.put(0+" "+0,new Point(0,0,4));
+		allPoints.put(0+" "+1,new Point(0,1,8));
+		allPoints.put(0+" "+2,new Point(0,2,7));
+		allPoints.put(0+" "+3,new Point(0,3,3));
+		allPoints.put(1+" "+0,new Point(1,0,2));
+		allPoints.put(1+" "+1,new Point(1,1,5));
+		allPoints.put(1+" "+2,new Point(1,2,9));
+		allPoints.put(1+" "+3,new Point(1,3,3));
+		allPoints.put(2+" "+0,new Point(2,0,6));
+		allPoints.put(2+" "+1,new Point(2,1,3));
+		allPoints.put(2+" "+2,new Point(2,2,2));
+		allPoints.put(2+" "+3,new Point(2,3,5));
+		allPoints.put(3+" "+0,new Point(3,0,4));
+		allPoints.put(3+" "+1,new Point(3,1,4));
+		allPoints.put(3+" "+2,new Point(3,2,1));
+		allPoints.put(3+" "+3,new Point(3,3,6));
+	
+	
 			
 	}
 	
@@ -70,7 +74,7 @@ public class RedmartChallenge {
 						p.rightCount=count;	
 						p.setNext(getPoint(p.rightPoint));
 						visitedPath.put(p, ++count);
-						allPoints.put(p.x+" "+p.y, p);
+						//allPoints.put(p.x+" "+p.y, p);
 					}
 				}
 				else{
@@ -80,7 +84,7 @@ public class RedmartChallenge {
 					p.rightCount=count;
 					p.setNext(getPoint(p.rightPoint));
 				visitedPath.put(p, ++count);
-				allPoints.put(p.x+" "+p.y, p);
+				//allPoints.put(p.x+" "+p.y, p);
 				}
 			}
 			else{
@@ -102,7 +106,7 @@ public class RedmartChallenge {
 							//p.rightPoint=getPoint(p.rightPoint);
 							p.rightCount=count;	
 							visitedPath.put(p, ++count);
-							allPoints.put(p.x+" "+p.y, p);
+							//allPoints.put(p.x+" "+p.y, p);
 						}
 					}
 					else{
@@ -111,7 +115,7 @@ public class RedmartChallenge {
 						p.rightCount=count;
 						p.setNext(getPoint(p.rightPoint));
 					visitedPath.put(p, ++count);
-					allPoints.put(p.x+" "+p.y, p);
+					//allPoints.put(p.x+" "+p.y, p);
 					}
 				}
 			}
@@ -136,7 +140,7 @@ public class RedmartChallenge {
 						p.leftCount=count;	
 						p.setNext(getPoint(p.leftPoint));
 						visitedPath.put(p, ++count);
-						allPoints.put(p.x+" "+p.y, p);
+						//allPoints.put(p.x+" "+p.y, p);
 					}
 				}
 				else{
@@ -145,7 +149,7 @@ public class RedmartChallenge {
 					p.leftCount=count;		
 					p.setNext(getPoint(p.leftPoint));
 					visitedPath.put(p, ++count);
-					allPoints.put(p.x+" "+p.y, p);
+				//	allPoints.put(p.x+" "+p.y, p);
 				}
 			}
 			else{
@@ -168,7 +172,7 @@ public class RedmartChallenge {
 							p.leftCount=count;		
 							p.setNext(getPoint(p.leftPoint));
 							visitedPath.put(p, ++count);
-							allPoints.put(p.x+" "+p.y, p);
+						//	allPoints.put(p.x+" "+p.y, p);
 						}
 					}
 					else{
@@ -177,7 +181,7 @@ public class RedmartChallenge {
 						p.leftCount=count;		
 						p.setNext(getPoint(p.leftPoint));
 						visitedPath.put(p, ++count);
-						allPoints.put(p.x+" "+p.y, p);
+						//allPoints.put(p.x+" "+p.y, p);
 					}
 				}
 			}
@@ -202,7 +206,7 @@ public class RedmartChallenge {
 						p.topCount=count;
 						p.setNext(getPoint(p.topPoint));
 						visitedPath.put(p, ++count);
-						allPoints.put(p.x+" "+p.y, p);
+					//	allPoints.put(p.x+" "+p.y, p);
 					}
 				}
 				else{
@@ -211,7 +215,7 @@ public class RedmartChallenge {
 					p.topCount=count;
 					p.setNext(getPoint(p.topPoint));
 				visitedPath.put(p, ++count);
-				allPoints.put(p.x+" "+p.y, p);
+			//	allPoints.put(p.x+" "+p.y, p);
 				}
 			}
 			else{
@@ -235,7 +239,7 @@ public class RedmartChallenge {
 							p.topCount=count;
 							p.setNext(getPoint(p.topPoint));
 							visitedPath.put(p, ++count);
-							allPoints.put(p.x+" "+p.y, p);
+							//allPoints.put(p.x+" "+p.y, p);
 						}
 					}
 					else{
@@ -244,7 +248,7 @@ public class RedmartChallenge {
 						p.topCount=count;
 						p.setNext(getPoint(p.topPoint));
 					visitedPath.put(p, ++count);
-					allPoints.put(p.x+" "+p.y, p);
+					//allPoints.put(p.x+" "+p.y, p);
 					}
 				}
 			}
@@ -270,7 +274,7 @@ public class RedmartChallenge {
 						p.bottomCount=count;
 						p.setNext(getPoint(p.bottomPoint));
 						visitedPath.put(p, ++count);
-						allPoints.put(p.x+" "+p.y, p);
+						//allPoints.put(p.x+" "+p.y, p);
 					}
 				}
 				else{
@@ -280,7 +284,7 @@ public class RedmartChallenge {
 					p.bottomCount=count;
 					p.setNext(getPoint(p.bottomPoint));
 				visitedPath.put(p, ++count);
-				allPoints.put(p.x+" "+p.y, p);
+				//allPoints.put(p.x+" "+p.y, p);
 				}
 			}
 			else{
@@ -303,7 +307,7 @@ public class RedmartChallenge {
 							p.bottomCount=count;
 							p.setNext(getPoint(p.bottomPoint));
 							visitedPath.put(p, ++count);
-							allPoints.put(p.x+" "+p.y, p);
+							//allPoints.put(p.x+" "+p.y, p);
 						}
 					}
 					else{
@@ -312,7 +316,7 @@ public class RedmartChallenge {
 						p.bottomCount=count;
 						p.setNext(getPoint(p.bottomPoint));
 					visitedPath.put(p, ++count);
-					allPoints.put(p.x+" "+p.y, p);
+					//allPoints.put(p.x+" "+p.y, p);
 					}
 				}
 			}
@@ -320,7 +324,7 @@ public class RedmartChallenge {
 		
 		if(noDescendingPoint){
 			visitedPath.put(p, 0);
-			allPoints.put(p.x+" "+p.y, p);
+			//allPoints.put(p.x+" "+p.y, p);
 
 		}
 		
@@ -338,7 +342,7 @@ public class RedmartChallenge {
 	public static void readTxt() throws FileNotFoundException{
 
 		
-	    File file = new File("C:\\Users\\a0120041j\\git\\Algorithm-Practice\\Algorithm\\src\\problems\\map.txt");
+	    File file = new File("src/problems/map.txt");
 	    Scanner in = new Scanner(file);
 	    in.useDelimiter("[/n]");
 
@@ -349,14 +353,16 @@ public class RedmartChallenge {
 	    Scanner firstLineScanner=new Scanner(firstLine);
 	    Integer x=Integer.parseInt(firstLineScanner.next());
 	    Integer y=Integer.parseInt(firstLineScanner.next());
+	    length=x;
 	   // X=x;
 	    //Y=y;
-	    data=new int[x][y];
+	    //data=new int[x][y];
 		//Repeat the steps now that all of your arrays have been initialized
-	    for (int j = 0; j < data.length; j++) {
+	    for (int j = 0; j < length; j++) {
 	        String[] s = in.nextLine().split(" ");
 	        for (int i = 0; i < s.length; i++) {
-	            data[j][i] = Integer.parseInt(s[i]);
+	          //  data[j][i] = Integer.parseInt(s[i]);
+	            allPoints.put(j+" "+i, new Point(j,i,Integer.parseInt(s[i])));
 	        }
 	    }
 	}
@@ -376,42 +382,42 @@ public class RedmartChallenge {
 		}
 	}
 	
-	public static void printLongestPath(Point p){
-		if(p==null)
-			return;
-		
-		int maxNeboureValue=Math.max(p.leftCount, Math.max(p.rightCount,Math.max(p.topCount,p.bottomCount)));
-		//System.out.println("value ="+p.value() +" "+maxNeboureValue);
-		
-		if(maxNeboureValue==0)
-			if(p!=null)
-				if(p.rightPoint()!=null)
-					printLongestPath(p.rightPoint());
-				else if(p.leftPoint()!=null)
-					printLongestPath(p.leftPoint());
-				else if(p.topPoint()!=null)
-					printLongestPath(p.topPoint());
-				else if(p.bottomPoint()!=null)
-					printLongestPath(p.bottomPoint());
-			
-			
-		
-		if(p.leftCount==maxNeboureValue){
-			printLongestPath(p.leftPoint);
-		}else if(p.rightCount==maxNeboureValue){
-
-			printLongestPath(p.rightPoint);
-		}
-		else if(p.topCount== maxNeboureValue){
-
-			printLongestPath(p.topPoint);
-			
-		}else if(p.bottomCount== maxNeboureValue){
-
-			printLongestPath(p.bottomPoint);
-			
-		}
-	}
+//	public static void printLongestPath(Point p){
+//		if(p==null)
+//			return;
+//		
+//		int maxNeboureValue=Math.max(p.leftCount, Math.max(p.rightCount,Math.max(p.topCount,p.bottomCount)));
+//		//System.out.println("value ="+p.value() +" "+maxNeboureValue);
+//		
+//		if(maxNeboureValue==0)
+//			if(p!=null)
+//				if(p.rightPoint()!=null)
+//					printLongestPath(p.rightPoint());
+//				else if(p.leftPoint()!=null)
+//					printLongestPath(p.leftPoint());
+//				else if(p.topPoint()!=null)
+//					printLongestPath(p.topPoint());
+//				else if(p.bottomPoint()!=null)
+//					printLongestPath(p.bottomPoint());
+//			
+//			
+//		
+//		if(p.leftCount==maxNeboureValue){
+//			printLongestPath(p.leftPoint);
+//		}else if(p.rightCount==maxNeboureValue){
+//
+//			printLongestPath(p.rightPoint);
+//		}
+//		else if(p.topCount== maxNeboureValue){
+//
+//			printLongestPath(p.topPoint);
+//			
+//		}else if(p.bottomCount== maxNeboureValue){
+//
+//			printLongestPath(p.bottomPoint);
+//			
+//		}
+//	}
 	
 	
 	public static void main(String[] args) throws FileNotFoundException {
@@ -419,16 +425,17 @@ public class RedmartChallenge {
 		
 		//read matrix
 		readTxt();
-		
+		long startTime=System.currentTimeMillis();
 		//find paths
-		for(int i=0;i<data.length;i++)
-			for(int j=0;j<data.length;j++){
+		for(int i=0;i<length;i++)
+			for(int j=0;j<length;j++){
 
-				Point p=new Point(i,j);
-				if(visitedPath.containsKey(p)){
-					
+				Point p=allPoints.get(i+" "+j);
+				if(!visitedPath.containsKey(p)){
+					traverseNode(p);
 				}
-				else traverseNode(p);
+				//System.out.println(i+" "+j);
+				
 
 			}
 		
@@ -455,7 +462,7 @@ public class RedmartChallenge {
 			max=first-end;
 			steepest=firstPoint;
 			}
-			System.out.println("");
+		
 			
 			//printLongestPath(p);
 		}
@@ -469,7 +476,9 @@ public class RedmartChallenge {
 				
 			}
 		}
-		
+		long endTime=System.currentTimeMillis();
+		System.out.println("Time in Milliseconds :");
+		System.out.println(endTime-startTime+" ms");
 		
 		
 	}

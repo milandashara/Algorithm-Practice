@@ -8,6 +8,8 @@ public class Point {
 	
 	private Point next;
 	
+	private int value;
+	
 	public int leftCount;
 	
 	public int getLeftCount() {
@@ -58,9 +60,10 @@ public class Point {
 	
 	public Point bottomPoint;
 	
-	public Point(Integer x,Integer y) {
+	public Point(Integer x,Integer y,int value) {
 		this.x=x;
 		this.y=y;
+		this.value=value;
 	}
 	
 	@Override
@@ -76,37 +79,37 @@ public class Point {
 //	}
 	
 	public int value(){
-		return RedmartChallenge.data[x][y];
+		return this.value;
 	}
 	
-	public int top(){
-		if(x-1==-1)
-			return -1;
-		return RedmartChallenge.data[x-1][y];
-	}
-	public int bootom(){
-		if(x+1 >= RedmartChallenge.data.length)
-			return -1;
-		return RedmartChallenge.data[x+1][y];
-	}
-	public int left(){
-		if(y-1==-1)
-			return -1;
-		return RedmartChallenge.data[x][y-1];
-	}
-	public int right(){
-		if(y+1 >= RedmartChallenge.data.length)
-			return -1;
-		return RedmartChallenge.data[x][y+1];
-	}
+//	public int top(){
+//		if(x-1==-1)
+//			return -1;
+//		return RedmartChallenge1.data[x-1][y];
+//	}
+//	public int bootom(){
+//		if(x+1 >= RedmartChallenge1.data.length)
+//			return -1;
+//		return RedmartChallenge1.data[x+1][y];
+//	}
+//	public int left(){
+//		if(y-1==-1)
+//			return -1;
+//		return RedmartChallenge1.data[x][y-1];
+//	}
+//	public int right(){
+//		if(y+1 >= RedmartChallenge1.data.length)
+//			return -1;
+//		return RedmartChallenge1.data[x][y+1];
+//	}
 	
 	public Point rightPoint(){
-		if(y+1 >= RedmartChallenge.data.length)
+		if(y+1 >= RedmartChallenge.length)
 			return null;
 		if(this.rightPoint!=null)
 			return rightPoint;
 		
-		rightPoint=new Point(x, y+1);
+		rightPoint=RedmartChallenge.allPoints.get(x+" "+(y+1));
 		return rightPoint;
 	}
 	
@@ -115,7 +118,7 @@ public class Point {
 			return null;
 		if(this.leftPoint!=null)
 			return leftPoint;
-		leftPoint= new Point(x, y-1);
+		leftPoint=RedmartChallenge.allPoints.get(x+" "+(y-1)); 
 		return leftPoint;
 	}
 	
@@ -125,24 +128,24 @@ public class Point {
 		if(this.topPoint!=null)
 			return topPoint;
 		
-		topPoint= new Point(x-1, y);
+		topPoint=RedmartChallenge.allPoints.get((x-1)+" "+(y));  
 		return topPoint;
 	}
 	
 	public Point bottomPoint(){
-		if(x+1 >= RedmartChallenge.data.length)
+		if(x+1 >= RedmartChallenge.length)
 			return null;
 		
 		if(this.bottomPoint!=null)
 			return bottomPoint;
-		this.bottomPoint =new Point(x+1, y);
+		this.bottomPoint =RedmartChallenge.allPoints.get((x+1)+" "+(y));  
 		return this.bottomPoint;
 	}
 	
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return x+","+y;
+		return x+","+y+","+value;
 	}
 	
 	public void setNext(Point next){
