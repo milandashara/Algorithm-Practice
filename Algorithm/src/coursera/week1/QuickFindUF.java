@@ -6,6 +6,8 @@ package coursera.week1;
  * IsConnected :Is there point P and Q are Connected.
  * Union : connect two points
  * 
+ * Uninon is not scalable due to quadratic time
+ * 
  * @author Milan
  *
  */
