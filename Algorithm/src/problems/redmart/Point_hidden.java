@@ -1,3 +1,4 @@
+package problems.redmart;
 //package problems;
 //
 //public class Point_hidden {

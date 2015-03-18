@@ -1,4 +1,4 @@
-package problems;
+package problems.redmart;
 
 public class Point {
 

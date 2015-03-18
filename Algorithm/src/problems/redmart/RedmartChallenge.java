@@ -1,4 +1,4 @@
-package problems;
+package problems.redmart;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -342,7 +342,7 @@ public class RedmartChallenge {
 	public static void readTxt() throws FileNotFoundException{
 
 		
-	    File file = new File("src/problems/map.txt");
+	    File file = new File("src/problems/redmart/map.txt");
 	    Scanner in = new Scanner(file);
 	    in.useDelimiter("[/n]");
 
