@@ -1,5 +1,7 @@
 package problems.mst;
 
+import java.io.File;
+
 /*************************************************************************
  * Compilation:   javac KruskalMST.java
  *  Execution:    java  KruskalMST filename.txt
@@ -176,8 +178,12 @@ public class KruskalMST {
      * Unit tests the <tt>KruskalMST</tt> data type.
      */
     public static void main(String[] args) {
-        In in = new In(args[0]);
+    	File file=new File("src/problems/mst/input.txt");
+    	//System.out.println(file.getAbsolutePath());
+    	In in = new In(file);
+   //     In in = new In(args[0]);
         EdgeWeightedGraph G = new EdgeWeightedGraph(in);
+        
         KruskalMST mst = new KruskalMST(G);
         for (Edge e : mst.edges()) {
             StdOut.println(e);
