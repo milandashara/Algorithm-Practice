@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class InsertionSortRunTime {
 	
-	private static int count;
+	public static int count;
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
@@ -23,7 +23,7 @@ public class InsertionSortRunTime {
 	 * 
 	 * @param a
 	 */
-	private static void insertionSort(int a[]) {
+	public static void insertionSort(int a[]) {
 		for (int i = 1; i < a.length; i++) {
 			insertIntoSortedArray(a, i, a[i]);
 		}
