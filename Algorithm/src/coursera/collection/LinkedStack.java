@@ -8,7 +8,6 @@ import java.util.Iterator;
 public class LinkedStack<Item> implements Iterable<Item> {
     private Node first = null;
 
-    @Override
     public Iterator<Item> iterator() {
         return new ListIterator();
     }

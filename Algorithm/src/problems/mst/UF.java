@@ -85,7 +85,7 @@ import java.util.Scanner;
  *  Moreover, the amortized time per <em>union</em>, <em>find</em>,
  *  and <em>connected</em> operation has inverse Ackermann complexity.
  *  For alternate implementations of the same API, see
- *  {@link QuickUnionUF}, {@link QuickFindUF}, and {@link WeightedQuickUnionUF}.
+ *  {@link TravelInformationCenter}, {@link QuickFindUF}, and {@link WeightedQuickUnionUF}.
  *
  *  <p>
  *  For additional documentation, see <a href="http://algs4.cs.princeton.edu/15uf">Section 1.5</a> of
