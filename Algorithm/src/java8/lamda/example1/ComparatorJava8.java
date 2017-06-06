@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by mukesh on 6/6/17.
  */
-public class Main {
+public class ComparatorJava8 {
 
     public static void main(String arg[]){
 
