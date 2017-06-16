@@ -3,7 +3,7 @@ package arrays;
 import java.util.Arrays;
 
 /**
- * Created by mukesh on 16/6/17.
+ * Created by milan on 16/6/17.
  */
 public class CountTriple {
 
