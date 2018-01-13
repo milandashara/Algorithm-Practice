@@ -9,7 +9,7 @@ import java.util.Map;
  * Created by mukesh on 6/6/17.
  */
 public class forEachEample {
-    
+
     public static void main(String arg[]){
         Map<String, Integer> items = new HashMap<>();
         items.put("A", 10);
