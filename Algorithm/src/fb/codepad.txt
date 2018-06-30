@@ -1,0 +1,63 @@
+Welcome to Facebook!
+
+This is just a simple shared plaintext pad, with no execution capabilities.
+
+When you know what language you'd like to use for your interview,
+simply choose it from the dropdown in the top bar.
+
+Enjoy your interview!
+
+Hi,
+
+
+Given K sorted lists of up to N elements in each list, return a sorted iterator over all the items.
+
+  class SortedIterator implements Iterator{
+
+    private List ksortedList;
+
+    private int currentItem = -1;
+
+    private Map<Integer> index = new HashMap<Integer>();
+
+    public SortedIterator(List ksortedList){
+      this.ksortedList = ksortedList;
+      for(int i=0;i<ksortedList.size();i++){    //O(K)
+        index.put(i,0);
+      }
+    }
+
+    public boolean hasNext(){
+
+
+    }
+
+    public int next(){
+
+      int min = Integer.MAX_VALUE;
+
+      if(min != -1){
+        min = currentItem;
+      }
+
+      int minIndex = -1;
+
+      for(int i=0;i<ksortedList.size();i++){  //O(K)
+        List list=ksortedList.get(i);
+        int index = index.get(i)
+        if(list.size() > index && min > list.get(index)){
+          min = list.get(index.get(i));
+          minIndex = i;
+        }
+      }
+
+      index.put(minIndex,index.get(minIndex)+1);
+
+      currentItem = min;
+
+      return min;
+
+
+    }
+
+  }

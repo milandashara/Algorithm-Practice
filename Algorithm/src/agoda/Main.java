@@ -3,7 +3,7 @@ package agoda;
 import problems.mst.Stack;
 
 /**
- * Created by mukesh on 28/5/17.
+ * Created by mashara on 28/5/17.
  */
 public class Main {
 

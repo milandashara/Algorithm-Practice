@@ -4,6 +4,8 @@ import java.util.Arrays;
 
 /**
  * Created by milan on 16/6/17.
+ * a1 + a2 + a3 = 0
+ *
  */
 public class CountTriple {
 

@@ -1,5 +1,10 @@
 package visa;
 
+import problems.mst.In;
+
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by mashara on 5/11/17.
  */
@@ -74,5 +79,40 @@ public class Solution {
 				count++;
 		}
 		return count;
+	}
+
+	/*
+	 * Complete the function below.
+	 */
+	static int differentTeams(String skills) {
+
+		HashMap<Character,Integer> skillsCount = new HashMap<>();
+		skillsCount.put('p',0);
+		skillsCount.put('c',0);
+		skillsCount.put('m',0);
+		skillsCount.put('b',0);
+		skillsCount.put('z',0);
+
+		for (Character c: skills.toCharArray()){
+			if (skillsCount.containsKey(c)){
+				skillsCount.put(c,skillsCount.get(c)+1);
+			}
+		}
+
+		int differentTeams = Integer.MAX_VALUE;
+
+		for (Map.Entry<Character, Integer> entry : skillsCount.entrySet())
+		{
+			if ( entry.getValue().compareTo(differentTeams) < 0)
+			{
+				differentTeams = entry.getValue();
+			}
+		}
+
+		if (differentTeams != Integer.MAX_VALUE){
+			return differentTeams;
+		}else {
+			return 0;
+		}
 	}
 }
